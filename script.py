@@ -1,7 +1,7 @@
 import random, math, time, sys
 
-f = open('output.txt','w')
-BIGNUM = 10000000
+f = open('output.txt','a')
+BIGNUM = 1000
 times = []
 
 def factorial(x):
@@ -25,15 +25,18 @@ def getTime():
 def main():
     total = 0
     average = 0
-
+    count = 0
+    
     for x in range(0,10):
         times.append(getTime())
         total = total + getTime()
+        count = count + 1
+        print(count)
     
     average = total / len(times)
     times.append(average)
 
     return times
 
-f.write(str(main()))
+f.write(str(main()) + "\n")
 f.close
