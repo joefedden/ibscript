@@ -1,6 +1,7 @@
 import random, math, time, sys
 
 BIGNUM = 10000000
+times = []
 
 def factorial(x):
     if x == 1:
@@ -14,10 +15,23 @@ def loop(loopMod):
         randNum = random.randint(1,10)
         factorial(randNum)
 
-def main(count):
+def getTime():
     t0 = time.clock()
-    loop(int(count))
+    loop(BIGNUM)
     t = time.clock()
     return t - t0
 
-print(str(main(BIGNUM)) + " secs")
+def main():
+    total = 0
+    average = 0
+
+    for x in range(0,9):
+        times.append(getTime())
+        total = total + getTime()
+    
+    average = total / len(times)
+    times.append(average)
+
+    return times
+
+print(str(main()) + " secs")
