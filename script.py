@@ -1,5 +1,6 @@
 import random, math, time, sys
 
+f = open('output.txt','w')
 BIGNUM = 10000000
 times = []
 
@@ -25,7 +26,7 @@ def main():
     total = 0
     average = 0
 
-    for x in range(0,9):
+    for x in range(0,10):
         times.append(getTime())
         total = total + getTime()
     
@@ -34,4 +35,5 @@ def main():
 
     return times
 
-print(str(main()) + " secs")
+f.write(str(main()))
+f.close
