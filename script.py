@@ -1,7 +1,7 @@
 import random,time
 
 f = open('output.txt','a') #Finds file 'output.txt' that we will append data to
-BIGNUM = 1000 
+BIGNUM = 1000000 
 times = [] #creates an empty 'times' array
 
 def factorial(x): #creates a 'factorial' function that will recursively find the factorial of 'x'
