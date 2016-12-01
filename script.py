@@ -1,8 +1,7 @@
 import random,time
 
-f = open('output.txt','a') #Finds file 'output.txt' that we will append data to
-BIGNUM = 1000000 
-times = [] #creates an empty 'times' array
+BIGNUM = 2500000 # creates a large number for counting
+times = [] # creates an empty 'times' array
 
 def factorial(x): #creates a 'factorial' function that will recursively find the factorial of 'x'
     if x == 1:
@@ -22,6 +21,16 @@ def getTime(): #creates a 'getTime' function that will return the time the 'loop
     t = time.clock()
     return t - t0
 
+def writeToFile():
+    r = input("Would you like to write to file? (y or n)")
+    if r == "y":
+        fileName = input("Enter file name: ")
+        f = open(fileName, 'a')
+        f.write(str(main()) + "\n")
+        f.close
+    else:
+        print(str(main()))
+
 def main(): #creates a 'main' function that will run the 'getTime' function 10 times and then returns an array of the times with their average
     total = 0
     average = 0
@@ -38,5 +47,4 @@ def main(): #creates a 'main' function that will run the 'getTime' function 10 t
 
     return times
 
-f.write(str(main()) + "\n") #writes the array of times to the 'output.txt' file
-f.close #closes the 'output.txt' file
+writeToFile()
